@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: turbo_rango_development
+  database: TurboRango_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: turbo_rango_test
+  database: TurboRango_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: turbo_rango_production
-  username: turbo_rango
-  password: <%= ENV['TURBO_RANGO_DATABASE_PASSWORD'] %>
+  database: TurboRango_production
+  username: TurboRango
+  password: <%= ENV['TURBORANGO_DATABASE_PASSWORD'] %>

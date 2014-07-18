@@ -1,5 +1,4 @@
-<h1>New menu</h1>
-
+<% content_for :title do %>
+  Novo Cardápio
+<% end %>
 <%= render 'form' %>
-
-<%= link_to 'Back', restaurant_menus_path(@restaurant) %>

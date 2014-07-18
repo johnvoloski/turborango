@@ -1,35 +1,33 @@
 <%= form_for([@restaurant, @menu]) do |f| %>
   <% if @menu.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
-
+    <div class="alert alert-danger" role="alert">
       <ul>
-      <% @menu.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @menu.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
   <%= f.hidden_field :restaurant_id %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :dish %><br>
-    <%= f.text_area :dish %>
+    <%= f.text_area :dish, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :weekday %><br>
-    <%= f.number_field :weekday %>
-    <ul>
-      <li>1 - Segunda-Feira</li>
-      <li>2 - Terça-Feira</li>
-      <li>3 - Quarta-Feira</li>
-      <li>4 - Quinta-Feira</li>
-      <li>5 - Sexta-Feira</li>
-      <li>6 - Sábado</li>
-      <li>7 - Domingo</li>
-    </ul>
+    <%= f.number_field :weekday, class: 'form-control' %>
+    <span class="help-block">
+      <ul>
+        <li>1 - Segunda-Feira</li>
+        <li>2 - Terça-Feira</li>
+        <li>3 - Quarta-Feira</li>
+        <li>4 - Quinta-Feira</li>
+        <li>5 - Sexta-Feira</li>
+        <li>6 - Sábado</li>
+        <li>7 - Domingo</li>
+      </ul>
+    </span>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= link_to 'Voltar', restaurant_menus_path, class: 'btn btn-primary btn-md' %>
+  <%= f.submit 'Salvar Cardápio', class: 'btn btn-primary btn-md' %>
 <% end %>

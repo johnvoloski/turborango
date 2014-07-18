@@ -1,3 +1,6 @@
+<% content_for :title do %>
+  Cardápio:
+<% end %>
 <p>
   <strong>Dish:</strong>
   <%= @menu.dish %>
@@ -13,5 +16,5 @@
   <%= @menu.restaurant.name %>
 </p>
 
-<%= link_to 'Edit', edit_restaurant_menu_url %> |
-<%= link_to 'Back', restaurant_menus_url %>
+<%= link_to 'Voltar', restaurant_menus_path, class: 'btn btn-primary btn-md' %>
+<%= link_to 'Editar Cardápio', edit_restaurant_menu_path, class: 'btn btn-primary btn-md' %>

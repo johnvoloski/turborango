@@ -4,9 +4,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Restaurant</th>
-      <th>Dish</th>
-      <th>Weekday</th>
+      <th><%= t('activerecord.attributes.restaurant.name') %></th>
+      <th><%= t('activerecord.attributes.menu.dish') %></th>
+      <th><%= t('activerecord.attributes.menu.weekday') %></th>
       <th width="150"></th>
     </tr>
   </thead>
@@ -15,7 +15,7 @@
       <tr>
         <td><%= menu.restaurant.name %></td>
         <td><%= menu.dish %></td>
-        <td><%= menu.weekday %></td>
+        <td><%= t('weekday').fetch(menu.weekday) %></td>
         <td>
           <%= link_to restaurant_menu_path(@restaurant, menu), class: 'btn btn-primary btn-xs' do %>
             <span class="glyphicon glyphicon-search"></span>

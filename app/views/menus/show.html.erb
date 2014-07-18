@@ -2,17 +2,17 @@
   Cardápio:
 <% end %>
 <p>
-  <strong>Dish:</strong>
+  <strong><%= t('activerecord.attributes.menu.dish') %>:</strong>
   <%= @menu.dish %>
 </p>
 
 <p>
-  <strong>Weekday:</strong>
-  <%= @menu.weekday %>
+  <strong><%= t('activerecord.attributes.menu.weekday') %>:</strong>
+  <%= t('weekday').fetch(@menu.weekday) %>
 </p>
 
 <p>
-  <strong>Restaurant:</strong>
+  <strong><%= t('activerecord.attributes.restaurant.name') %>:</strong>
   <%= @menu.restaurant.name %>
 </p>
 

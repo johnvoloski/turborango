@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717191047) do
+ActiveRecord::Schema.define(version: 20140717190318) do
 
   create_table "menus", force: true do |t|
     t.text     "dish"
@@ -19,17 +19,15 @@ ActiveRecord::Schema.define(version: 20140717191047) do
     t.integer  "restaurant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "menu_id"
   end
 
-  add_index "menus", ["menu_id"], name: "index_menu_id", using: :btree
   add_index "menus", ["restaurant_id"], name: "index_menus_on_restaurant_id", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
     t.float    "price"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude",   precision: 10, scale: 8
+    t.decimal  "longitude",  precision: 10, scale: 8
     t.datetime "created_at"
     t.datetime "updated_at"
   end

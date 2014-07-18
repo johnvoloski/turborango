@@ -18,11 +18,10 @@
         <td><%= restaurant.price %></td>
         <td><%= restaurant.latitude %></td>
         <td><%= restaurant.longitude %></td>
+        <td><%= link_to 'See All Menus', restaurant_menus_path(restaurant) %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'New Menu', new_restaurant_menu_path(restaurant) %></td>
-        <td><%= link_to 'View Menus', restaurant_menus_path(restaurant) %></td>
       </tr>
     <% end %>
   </tbody>

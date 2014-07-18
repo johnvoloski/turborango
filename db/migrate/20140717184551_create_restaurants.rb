@@ -3,8 +3,8 @@ class CreateRestaurants < ActiveRecord::Migration
     create_table :restaurants do |t|
       t.string :name
       t.float :price
-      t.float :latitude
-      t.float :longitude
+      t.decimal :latitude, precision: 10, scale: 8
+      t.decimal :longitude, precision: 10, scale: 8
 
       t.timestamps
     end

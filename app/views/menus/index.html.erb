@@ -1,5 +1,7 @@
 <h1>Listing menus</h1>
 
+<p id="notice"><%= notice %></p>
+
 <table>
   <thead>
     <tr>
@@ -9,13 +11,15 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @menus.each do |menu| %>
       <tr>
         <td><%= menu.restaurant.name %></td>
         <td><%= menu.dish %></td>
         <td><%= menu.weekday %></td>
+        <td><%= link_to 'Show', restaurant_menu_path(@restaurant, menu) %></td>
+        <td><%= link_to 'Edit', edit_restaurant_menu_path(@restaurant, menu) %></td>
+        <td><%= link_to 'Destroy', restaurant_menu_path(@restaurant, menu), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,5 +27,5 @@
 
 <br>
 
-<%= link_to 'New Menu', new_restaurant_menu_path(@restaurant) %> |
+<%= link_to 'New Menu', new_restaurant_menu_path %> |
 <%= link_to 'Back', restaurants_path %>

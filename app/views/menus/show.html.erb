@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Dish:</strong>
   <%= @menu.dish %>
@@ -12,8 +10,8 @@
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @menu.restaurant %>
+  <%= @menu.restaurant.name %>
 </p>
 
-<%= link_to 'Edit', restaurant_edit_menu_path(@menu) %> |
-<%= link_to 'Back', restaurant_menus_path(@restaurant) %>
+<%= link_to 'Edit', edit_restaurant_menu_url %> |
+<%= link_to 'Back', restaurant_menus_url %>

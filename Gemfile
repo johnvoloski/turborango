@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -13,6 +14,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
+# Use Bootstrap Framework
+gem 'rails-assets-bootstrap-sass'
+# Use Font Awesome
+gem 'rails-assets-font-awesome'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -38,5 +43,12 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# Use RSpec
-gem 'rspec-rails', group: [:development, :test]
+# Use for tests
+group :development, :test do
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'rspec-rails'
+  gem 'minitest'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+end

@@ -2,7 +2,6 @@ require "spec_helper"
 
 describe MenusController do
   describe "routing" do
-
     it "routes to #index" do
       get("/menus").should route_to("menus#index")
     end
@@ -30,6 +29,5 @@ describe MenusController do
     it "routes to #destroy" do
       delete("/menus/1").should route_to("menus#destroy", :id => "1")
     end
-
   end
 end

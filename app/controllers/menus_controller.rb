@@ -30,7 +30,7 @@ class MenusController < ApplicationController
     respond_to do |format|
       if @menu.save
         format.html { redirect_to restaurant_menus_path, notice: 'Menu was successfully created.' }
-        format.json { render :show, status: :created, location: @menu }
+        format.json { render :show, status: :created, location: restaurant_menus_path }
       else
         format.html { render :new }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
@@ -44,7 +44,7 @@ class MenusController < ApplicationController
     respond_to do |format|
       if @menu.update(menu_params)
         format.html { redirect_to restaurant_menus_path, notice: 'Menu was successfully updated.' }
-        format.json { render :show, status: :ok, location: @menu }
+        format.json { render :show, status: :ok, location: restaurant_menus_path }
       else
         format.html { render :edit }
         format.json { render json: @menu.errors, status: :unprocessable_entity }

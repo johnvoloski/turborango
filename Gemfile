@@ -40,6 +40,3 @@ gem 'spring',        group: :development
 
 # Use RSpec
 gem 'rspec-rails', group: [:development, :test]
-
-gem 'pry'
-gem 'pry-nav'

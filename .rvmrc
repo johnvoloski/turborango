@@ -1,1 +1,1 @@
-rvm use 2.1.2@faccat --create
+rvm use 1.9.3@faccat --create

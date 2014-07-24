@@ -1,6 +1,6 @@
 language: ruby
-env:
-  - DB=mysql
+before_install:
+  - gem install rake -v '>= 10.3.2'
 before_script:
   - mysql -e 'create database TurboRango_test;'
   - RAILS_ENV=test rake --trace db:migrate test

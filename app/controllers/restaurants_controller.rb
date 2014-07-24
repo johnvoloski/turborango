@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 

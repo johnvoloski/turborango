@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MenusController < ApplicationController
   before_action :set_restaurant, expect: [:show, :edit]
   before_action :set_menu, only: [:show, :edit, :update, :destroy]

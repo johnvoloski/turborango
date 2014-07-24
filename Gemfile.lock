@@ -90,6 +90,11 @@ GEM
       rails-assets-jquery (>= 1.9.0)
     rails-assets-font-awesome (4.1.0)
     rails-assets-jquery (2.1.1)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.2)
+    rails_stdout_logging (0.0.3)
     railties (4.1.1)
       actionpack (= 4.1.1)
       activesupport (= 4.1.1)
@@ -167,6 +172,7 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails-assets-bootstrap-sass
   rails-assets-font-awesome
+  rails_12factor
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)

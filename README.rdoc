@@ -1,3 +1,5 @@
+{<img src="https://travis-ci.org/johnvoloski/turborango.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/johnvoloski/turborango]
+
 == TURBO RANGO
 
 Aplicativo para cálculo de restaurantes próximos.

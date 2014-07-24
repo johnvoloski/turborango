@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :restaurants do
+    get :near, on: :collection
+
     resources :menus
   end
 

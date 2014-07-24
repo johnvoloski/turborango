@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  Restaurantes Pr&oacute;ximos
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t('activerecord.attributes.restaurant.name') %></th>
+      <th><%= t('activerecord.attributes.restaurant.price') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= number_to_currency(restaurant.price) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

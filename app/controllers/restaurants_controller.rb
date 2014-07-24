@@ -61,6 +61,14 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  # GET /restaurants/near
+  # GET /restaurants/near.json
+  def near
+    @restaurants = Restaurant.all.map do |restaurant|
+      restaurant if haversine(restaurant).to_kilometers < 10
+    end.compact
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
@@ -68,7 +76,16 @@ class RestaurantsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    def near_params
+      params.permit(:latitude, :longitude)
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
       params.require(:restaurant).permit(:name, :price, :latitude, :longitude)
+    end
+
+    def haversine(restaurant)
+      Haversine.distance(restaurant.latitude.to_f, restaurant.longitude.to_f, near_params[:latitude].to_f, near_params[:longitude].to_f)
     end
 end

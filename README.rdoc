@@ -2,4 +2,4 @@
 
 == TURBO RANGO
 
-Aplicativo para cálculo de restaurantes próximos.
+Aplicativo de Sorteio entre Restaurantes ( Rails + AngularJS )

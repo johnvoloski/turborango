@@ -1,4 +1,9 @@
 language: ruby
+env:
+  - DB=mysql
+before_script:
+  - mysql -e 'create database TurboRango_test;'
+  - RAILS_ENV=test rake --trace db:migrate test
 rvm:
   - 1.9.3
   - 2.0.0

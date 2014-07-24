@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Restaurant < ActiveRecord::Base
   has_many :menus, dependent: :destroy
 

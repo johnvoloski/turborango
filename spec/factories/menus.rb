@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 FactoryGirl.define do
   factory :menu do
     dish 'Feijão, Arroz e Carne ( Frango / Peixe )'

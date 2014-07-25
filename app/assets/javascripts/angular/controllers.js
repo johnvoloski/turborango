@@ -18,7 +18,10 @@ function IndexCtrl($scope) {
 function RestaurantCtrl($scope, restaurants) {
 
   $scope.headerCadRest = "Cadastro de restaurantes";
-  $scope.restaurants = restaurants.get();
+
+  restaurants.get().then(function(result) {
+    $scope.restaurants = result;
+  });
 
   /*
    * Cadastra um novo restaurante.
@@ -26,7 +29,9 @@ function RestaurantCtrl($scope, restaurants) {
    */
   $scope.cadastrar = function(novo) {
     $scope.novoRest = angular.copy(novo);
+    $scope.novoRest.price = 333.12;
     $scope.restaurants.push($scope.novoRest);
+    restaurants.add($scope.novoRest);
   }
 
   /*
@@ -35,13 +40,15 @@ function RestaurantCtrl($scope, restaurants) {
    */
   $scope.remover = function(restaurante) {
     var indice = $scope.restaurants.indexOf(restaurante);
-    if (indice > -1)
+    if (indice > -1) {
       $scope.restaurants.splice(indice, 1);
+      restaurants.remove(restaurante);
+    }
     $scope.restaurantBeingEdited = null;
   }
 
   $scope.$watch('restaurants', function() {
-    restaurants.set($scope.restaurants);
+    //restaurants.set($scope.restaurants);
   }, true);
 
 }
@@ -70,14 +77,14 @@ function MenuCtrl($scope) {
     name: 'Domingo',
     value: 'Dom'
   }];
-  $scope.diaSelecionado = $scope.diasSemana[0]; // Padrão Segunda-feira
+
   $scope.cadastrar = function(novo) {
     var diaCardapio = angular.copy(novo);
     // Caso o array de cardápio esteja vazio, inicializa
-    if (!$scope.restaurantBeingEdited.cardapio) {
-      $scope.restaurantBeingEdited.cardapio = [];
+    if (!$scope.restaurantBeingEdited.menu) {
+      $scope.restaurantBeingEdited.menu = [];
     }
-    $scope.restaurantBeingEdited.cardapio.push(diaCardapio);
+    $scope.restaurantBeingEdited.menu.push(diaCardapio);
   };
 
   /*
@@ -88,7 +95,7 @@ function MenuCtrl($scope) {
   $scope.sortDiasCardapio = function(dia) {
     var index = $scope.diasSemana.map(function(i) {
       return i.value;
-    }).indexOf(dia.dia.value);
+    }).indexOf(dia.weekday.value);
     return index;
   };
 }

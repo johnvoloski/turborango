@@ -2,9 +2,9 @@
   <h3>{{ headerCadCardapio }}</h3>
 
   <form name="formCardapio" novalidate>
-    Dia: <select name="dia" ng-model="cardapio.dia" ng-options="dia.name for dia in diasSemana"></select>
-    Pratos: <input type="text" name="pratos" ng-model="cardapio.pratos">
-    <button ng-click="cadastrar(cardapio)">Criar!</button>
+    Dia: <select name="weekday" ng-model="menu.weekday" ng-options="weekday.name for weekday in diasSemana"></select>
+    Pratos: <input type="text" name="dish" ng-model="menu.dish">
+    <button ng-click="cadastrar(menu)">Criar!</button>
     <br>
     Buscar por: <input type="text" ng-model="searchObject">
   </form>
@@ -18,9 +18,9 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="diaCardapio in restaurantBeingEdited.cardapio | filter:searchObject | orderBy:sortDiasCardapio">
-        <td>{{ diaCardapio.dia.name }}</td>
-        <td>{{ diaCardapio.pratos }}</td>
+      <tr ng-repeat="dailyDish in restaurantBeingEdited.menu | filter:searchObject | orderBy:sortDiasCardapio">
+        <td>{{ dailyDish.weekday.name }}</td>
+        <td>{{ dailyDish.dish }}</td>
       </tr>
     </tbody>
   </table>

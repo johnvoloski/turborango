@@ -1,4 +1,4 @@
-app.filter('prefixoRestaurante', function() {
+app.filter('namePreffix', function() {
   return function(text) {
     return "Restaurante " +  text;
   }

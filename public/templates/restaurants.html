@@ -1,24 +1,24 @@
 <h3>{{ headerCadRest }}</h3>
 
-<form name="formRestaurante" novalidate>
+<form name="formRestaurant" novalidate>
   Nome
-  <input type="text" name="nome" ng-model="restaurante.nome" required>
+  <input type="text" name="name" ng-model="restaurant.name" required>
   <br>Latitude
-  <input type="number" name="latitude" ng-model="restaurante.latitude" required>
+  <input type="number" name="latitude" ng-model="restaurant.latitude" required>
   <br>Longitude
-  <input type="number" name="longitude" ng-model="restaurante.longitude" required>
+  <input type="number" name="longitude" ng-model="restaurant.longitude" required>
   <br>
 
-  <div ng-show="formRestaurante.nome.$dirty && formRestaurante.nome.$invalid">
-    <span ng-class="{ error: formRestaurante.nome.$error.required }" ng-show="formRestaurante.nome.$error.required">Nome obrigatório!</span>
+  <div ng-show="formRestaurant.name.$dirty && formRestaurant.name.$invalid">
+    <span ng-class="{ error: formRestaurant.name.$error.required }" ng-show="formRestaurant.name.$error.required">name obrigatório!</span>
   </div>
 
-  <button ng-disabled="formRestaurante.$invalid" ng-click="cadastrar(restaurante)">Criar!</button>
+  <button ng-disabled="formRestaurant.$invalid" ng-click="cadastrar(restaurant)">Criar!</button>
 </form>
 
-<pre ng-show="novoRest">Novo Restaurante (JSON):<br><br> {{ novoRest | json }}</pre>
+<pre ng-show="novoRest">Novo restaurant (JSON):<br><br> {{ novoRest | json }}</pre>
 
-<!-- TABELA DE RESTAURANTES (master) -->
+<!-- TABELA DE restaurantS (master) -->
 <section>
   <table>
 
@@ -33,21 +33,21 @@
     <tfoot>
       <tr>
         <td>
-          Total: {{ restaurantes.length }}</td>
+          Total: {{ restaurants.length }}</td>
       </tr>
     </tfoot>
 
     <tbody>
-      <tr ng-repeat="restaurante in restaurants | orderBy: 'nome'">
+      <tr ng-repeat="restaurant in restaurants | orderBy: 'name'">
 
-        <td>{{ restaurante.nome | prefixoRestaurante }}</td>
-        <td>{{ restaurante.latitude | number:2 }}</td>
-        <td>{{ restaurante.longitude | number:2 }}</td>
+        <td>{{ restaurant.name | namePreffix }}</td>
+        <td>{{ restaurant.latitude | number }}</td>
+        <td>{{ restaurant.longitude | number }}</td>
         <td>
-          <button ng-click="$parent.restaurantBeingEdited = restaurante">Cardápio</button>
+          <button ng-click="$parent.restaurantBeingEdited = restaurant">Cardápio</button>
         </td>
         <td>
-          <button ng-click="remover(restaurante)">Remover</button>
+          <button ng-click="remover(restaurant)">Remover</button>
         </td>
       </tr>
     </tbody>

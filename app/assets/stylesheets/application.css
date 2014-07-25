@@ -21,3 +21,8 @@ body {
   font-size: 14px;
   padding-top: 30px;
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+}

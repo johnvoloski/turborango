@@ -1,0 +1,61 @@
+<h3>{{ headerCadRest }}</h3>
+
+<form name="formRestaurante" novalidate>
+  Nome
+  <input type="text" name="nome" ng-model="restaurante.nome" required>
+  <br>Latitude
+  <input type="number" name="latitude" ng-model="restaurante.latitude" required>
+  <br>Longitude
+  <input type="number" name="longitude" ng-model="restaurante.longitude" required>
+  <br>
+
+  <div ng-show="formRestaurante.nome.$dirty && formRestaurante.nome.$invalid">
+    <span ng-class="{ error: formRestaurante.nome.$error.required }" ng-show="formRestaurante.nome.$error.required">Nome obrigatório!</span>
+  </div>
+
+  <button ng-disabled="formRestaurante.$invalid" ng-click="cadastrar(restaurante)">Criar!</button>
+</form>
+
+<pre ng-show="novoRest">Novo Restaurante (JSON):<br><br> {{ novoRest | json }}</pre>
+
+<!-- TABELA DE RESTAURANTES (master) -->
+<section>
+  <table>
+
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+      </tr>
+    </thead>
+
+    <tfoot>
+      <tr>
+        <td>
+          Total: {{ restaurantes.length }}</td>
+      </tr>
+    </tfoot>
+
+    <tbody>
+      <tr ng-repeat="restaurante in restaurantes | orderBy: 'nome'">
+
+        <td>{{ restaurante.nome | prefixoRestaurante }}</td>
+        <td>{{ restaurante.latitude | number:2 }}</td>
+        <td>{{ restaurante.longitude | number:2 }}</td>
+        <td>
+          <button ng-click="$parent.restauranteSendoEditado = restaurante">Cardápio</button>
+        </td>
+        <td>
+          <button ng-click="remover(restaurante)">Remover</button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</section>
+
+<hr>
+
+<!-- TABELA DE CARDÁPIO (detail) -->
+<cardapio ng-show="restauranteSendoEditado" ng-include="'templates/cardapio.html'"></cardapio>

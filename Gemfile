@@ -62,3 +62,6 @@ end
 
 # Haversine
 gem 'haversine'
+
+gem 'rails-assets-angular'
+gem 'rails-assets-angular-route'

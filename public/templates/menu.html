@@ -1,0 +1,6 @@
+<h3>O que deseja?</h3>
+<ul>
+  <li ng-repeat="item in menu | filter: { ativo: true }">
+    <a href="{{ item.href }}">{{ item.texto }}</a>
+  </li>
+</ul>

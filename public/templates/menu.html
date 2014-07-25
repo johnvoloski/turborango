@@ -1,6 +1,27 @@
-<h3>O que deseja?</h3>
-<ul>
-  <li ng-repeat="item in menu | filter: { ativo: true }">
-    <a href="{{ item.href }}">{{ item.texto }}</a>
-  </li>
-</ul>
+<section ng-controller="MenuCtrl">
+  <h3>{{ headerCadCardapio }}</h3>
+
+  <form name="formCardapio" novalidate>
+    Dia: <select name="dia" ng-model="cardapio.dia" ng-options="dia.name for dia in diasSemana"></select>
+    Pratos: <input type="text" name="pratos" ng-model="cardapio.pratos">
+    <button ng-click="cadastrar(cardapio)">Criar!</button>
+    <br>
+    Buscar por: <input type="text" ng-model="searchObject">
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Dia da semana</th>
+        <th>Pratos</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr ng-repeat="diaCardapio in restaurantBeingEdited.cardapio | filter:searchObject | orderBy:sortDiasCardapio">
+        <td>{{ diaCardapio.dia.name }}</td>
+        <td>{{ diaCardapio.pratos }}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

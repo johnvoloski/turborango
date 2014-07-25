@@ -1,6 +1,6 @@
 app.directive('turboMenu', function() {
   return {
-    templateUrl: 'templates/menu.html',
+    templateUrl: 'templates/navbar.html',
     restrict: 'E'
   };
 });

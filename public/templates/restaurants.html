@@ -38,13 +38,13 @@
     </tfoot>
 
     <tbody>
-      <tr ng-repeat="restaurante in restaurantes | orderBy: 'nome'">
+      <tr ng-repeat="restaurante in restaurants | orderBy: 'nome'">
 
         <td>{{ restaurante.nome | prefixoRestaurante }}</td>
         <td>{{ restaurante.latitude | number:2 }}</td>
         <td>{{ restaurante.longitude | number:2 }}</td>
         <td>
-          <button ng-click="$parent.restauranteSendoEditado = restaurante">Cardápio</button>
+          <button ng-click="$parent.restaurantBeingEdited = restaurante">Cardápio</button>
         </td>
         <td>
           <button ng-click="remover(restaurante)">Remover</button>
@@ -58,4 +58,4 @@
 <hr>
 
 <!-- TABELA DE CARDÁPIO (detail) -->
-<cardapio ng-show="restauranteSendoEditado" ng-include="'templates/cardapio.html'"></cardapio>
+<cardapio ng-show="restaurantBeingEdited" ng-include="'templates/menu.html'"></cardapio>

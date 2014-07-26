@@ -27,7 +27,7 @@ function RestaurantCtrl($scope, restaurants) {
    * Cadastra um novo restaurante.
    * @param novo Novo restaurante a ser cadastrado.
    */
-  $scope.cadastrar = function(novo) {
+  $scope.create = function(novo) {
     $scope.novoRest = angular.copy(novo);
     $scope.restaurants.push($scope.novoRest);
     restaurants.add($scope.novoRest);
@@ -37,11 +37,11 @@ function RestaurantCtrl($scope, restaurants) {
    * Remove o restaurante do escopo.
    * @param restaurante Restaurante existente no escopo que deverá ser removido.
    */
-  $scope.remover = function(restaurante) {
-    var indice = $scope.restaurants.indexOf(restaurante);
+  $scope.$$remove = function(restaurant) {
+    var indice = $scope.restaurants.indexOf(restaurant);
     if (indice > -1) {
+      restaurants.remove(restaurant);
       $scope.restaurants.splice(indice, 1);
-      restaurants.remove(restaurante);
     }
     $scope.restaurantBeingEdited = null;
   }

@@ -20,7 +20,7 @@
     </div>
   </section>
 
-  <button ng-disabled="formRestaurant.$invalid" ng-click="cadastrar(restaurant)">Criar!</button>
+  <button ng-disabled="formRestaurant.$invalid" ng-click="create(restaurant)">Criar!</button>
 </form>
 
 <pre ng-show="novoRest">Novo restaurant (JSON):<br><br> {{ novoRest | json }}</pre>
@@ -54,7 +54,7 @@
           <button ng-click="$parent.restaurantBeingEdited = restaurant">Cardápio</button>
         </td>
         <td>
-          <button ng-click="remover(restaurant)">Remover</button>
+          <button ng-click="$$remove(restaurant)">Remover</button>
         </td>
       </tr>
     </tbody>

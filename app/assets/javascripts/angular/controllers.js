@@ -100,7 +100,22 @@ function MenuCtrl($scope) {
 }
 
 function WhereToEatCtrl($scope, restaurants) {
+
+  // taken from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  random = function (min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+
+  $scope.feedbackMessage = "Iniciando o turbo...";
+
   restaurants.nearBy().then(function(results) {
-    $scope.placesOptions = results.data;
+    $scope.placesOptions = results;
+
+    // se algum restaurante possuir um prato com Bacon, é óbvio que ele deve ser o escolhido ;)
+    // só considere os 3 restaurantes mais próximos
+
+    $scope.feedbackMessage = $scope.placesOptions[random(0, 2)].name;
+
+
   });
 }

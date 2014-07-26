@@ -31,6 +31,28 @@ app.service('restaurants', function($q, $http) {
   }
 
   this.nearBy = function() {
-    return $http.get('/restaurants/near.json');
+
+    deferred = $q.defer();
+
+    navigator.geolocation.getCurrentPosition(
+
+      // onSuccess
+      function(pos) {
+
+        var route = '/restaurants/near.json?latitude=:lat&longitude=:long'.replace(':lat', pos.coords.latitude).replace(':long', pos.coords.longitude);
+        $http.get(route).then(function(response) {
+          console.log(response);
+          deferred.resolve(response.data);
+        });
+      },
+
+      // onError
+      function(err) {
+        deferred.reject("Unable to get current position :(, error: ", err);
+      }
+
+    );
+
+    return deferred.promise;
   }
 });

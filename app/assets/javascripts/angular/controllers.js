@@ -109,13 +109,14 @@ function WhereToEatCtrl($scope, restaurants) {
   $scope.feedbackMessage = "Iniciando o turbo...";
 
   restaurants.nearBy().then(function(results) {
-    $scope.placesOptions = results;
 
     // se algum restaurante possuir um prato com Bacon, é óbvio que ele deve ser o escolhido ;)
     // só considere os 3 restaurantes mais próximos
-
-    $scope.feedbackMessage = $scope.placesOptions[random(0, 2)].name;
-
+    var chosenIndex = random(0, 2);
+    $scope.feedbackMessage = results[chosenIndex].name;
+    // removing chosen from the OTHER options (it is already being displayed above)
+    results.splice(chosenIndex, 1);
+    $scope.placesOptions = results;
 
   });
 }

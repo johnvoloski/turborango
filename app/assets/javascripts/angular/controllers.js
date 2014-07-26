@@ -9,9 +9,9 @@ function IndexCtrl($scope) {
     href: "#/",
     isActive: false
   }, {
-    text: "Sortear onde almoçar!",
-    href: "#/",
-    isActive: false
+    text: "Descobrir onde almoçar!",
+    href: "#/where-to-eat",
+    isActive: true
   }];
 }
 
@@ -20,7 +20,7 @@ function RestaurantCtrl($scope, restaurants) {
   $scope.headerCadRest = "Cadastro de restaurantes";
 
   restaurants.get().then(function(result) {
-    $scope.restaurants = result;
+    $scope.restaurants = result.data;
   });
 
   /*
@@ -29,7 +29,6 @@ function RestaurantCtrl($scope, restaurants) {
    */
   $scope.cadastrar = function(novo) {
     $scope.novoRest = angular.copy(novo);
-    $scope.novoRest.price = 333.12;
     $scope.restaurants.push($scope.novoRest);
     restaurants.add($scope.novoRest);
   }
@@ -98,4 +97,10 @@ function MenuCtrl($scope) {
     }).indexOf(dia.weekday.value);
     return index;
   };
+}
+
+function WhereToEatCtrl($scope, restaurants) {
+  restaurants.nearBy().then(function(results) {
+    $scope.placesOptions = results.data;
+  });
 }

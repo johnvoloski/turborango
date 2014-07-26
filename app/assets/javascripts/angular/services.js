@@ -3,20 +3,13 @@ app.service('restaurants', function($q, $http) {
   this.storageKey = 'turboRango_restaurants';
 
   this.get = function() {
-    deferred = $q.defer();
-
-    $http.get('/restaurants.json').then(function(response) {
-      deferred.resolve(response.data);
-    });
-
-    return deferred.promise;
+    return $http.get('/restaurants.json');
   };
 
-  this.set = function(restaurantes) {
-    if (restaurantes) {
-      restaurantes.forEach(function(i, v) {
+  this.set = function(restaurants) {
+    if (restaurants) {
+      restaurants.forEach(function(i, v) {
         var route = '/restaurants/:id.json'.replace(':id', i.id);
-
         $http.put(route, i).then(function(response) {
           console.log(response);
         });
@@ -35,5 +28,9 @@ app.service('restaurants', function($q, $http) {
       var route = '/restaurants/:id.json'.replace(':id', restaurant.id);
       $http.delete(route, restaurant);
     }
+  }
+
+  this.nearBy = function() {
+    return $http.get('/restaurants/near.json');
   }
 });

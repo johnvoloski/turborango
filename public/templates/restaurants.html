@@ -1,17 +1,24 @@
 <h3>{{ headerCadRest }}</h3>
 
 <form name="formRestaurant" novalidate>
-  Nome
-  <input type="text" name="name" ng-model="restaurant.name" required>
-  <br>Latitude
-  <input type="number" name="latitude" ng-model="restaurant.latitude" required>
-  <br>Longitude
-  <input type="number" name="longitude" ng-model="restaurant.longitude" required>
-  <br>
 
-  <div ng-show="formRestaurant.name.$dirty && formRestaurant.name.$invalid">
-    <span ng-class="{ error: formRestaurant.name.$error.required }" ng-show="formRestaurant.name.$error.required">name obrigatório!</span>
-  </div>
+  <fieldset>
+    Nome <input type="text" name="name" ng-model="restaurant.name" required><br>
+    Preço <input type="number" name="price" ng-model="restaurant.price" required><br>
+    Latitude <input type="number" name="latitude" ng-model="restaurant.latitude" required><br>
+    Longitude <input type="number" name="longitude" ng-model="restaurant.longitude" required><br>
+  </fieldset>
+
+  <section>
+    <div ng-show="formRestaurant.name.$dirty && formRestaurant.name.$invalid">
+      <span ng-class="{ error: formRestaurant.name.$error.required }" ng-show="formRestaurant.name.$error.required">*</span>
+    </div>
+
+    <div ng-show="formRestaurant.price.$dirty && formRestaurant.price.$invalid">
+      <span ng-class="{ error: formRestaurant.price.$error.required }" ng-show="formRestaurant.price.$error.required">Preço obrigatório.</span><br>
+      <span ng-class="{ error: formRestaurant.price.$error.number }" ng-show="formRestaurant.price.$error.number">Por favor, informe um número.</span>
+    </div>
+  </section>
 
   <button ng-disabled="formRestaurant.$invalid" ng-click="cadastrar(restaurant)">Criar!</button>
 </form>

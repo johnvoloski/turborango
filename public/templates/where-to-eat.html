@@ -1,0 +1,10 @@
+<h3>E agora, onde almoçar?</h3>
+
+<section>
+  <h4>As outras opções eram...</h4>
+  <ul>
+    <li ng-repeat="placeOption in placesOptions">
+      Restaurante {{ placeOption.name }}, por: {{ placeOption.price | currency }}
+    </li>
+  </ul>
+</section>

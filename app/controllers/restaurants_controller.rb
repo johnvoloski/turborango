@@ -66,7 +66,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/near.json
   def near
     @restaurants = Restaurant.all.map do |restaurant|
-      restaurant if haversine(restaurant).to_kilometers < 10
+      restaurant if haversine(restaurant).to_kilometers < 10000
     end.compact
   end
 

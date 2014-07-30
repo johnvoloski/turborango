@@ -32,6 +32,7 @@
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Preço</th>
         <th>Latitude</th>
         <th>Longitude</th>
       </tr>
@@ -48,6 +49,7 @@
       <tr ng-repeat="restaurant in restaurants | orderBy: 'name'">
 
         <td>{{ restaurant.name | namePreffix }}</td>
+        <td>{{ restaurant.price | currency }}</td>
         <td>{{ restaurant.latitude | number }}</td>
         <td>{{ restaurant.longitude | number }}</td>
         <td>

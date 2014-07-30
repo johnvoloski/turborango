@@ -87,6 +87,7 @@ GEM
       railties (= 4.1.1)
       sprockets-rails (~> 2.0)
     rails-assets-angular (1.2.20)
+    rails-assets-angular-i18n (1.2.21)
     rails-assets-angular-route (1.2.20)
       rails-assets-angular (~> 1.2.0)
     rails-assets-bootstrap-sass (3.0.2)
@@ -174,6 +175,7 @@ DEPENDENCIES
   pry-nav
   rails (= 4.1.1)
   rails-assets-angular
+  rails-assets-angular-i18n
   rails-assets-angular-route
   rails-assets-bootstrap-sass
   rails-assets-font-awesome

@@ -2,15 +2,15 @@ function IndexCtrl($scope) {
   $scope.header = "TurboRango";
   $scope.links = [{
     text: "Restaurantes",
-    href: "#/restaurants",
+    href: "/restaurants",
     isActive: true
   }, {
     text: "Cardápio",
-    href: "#/",
+    href: "/",
     isActive: false
   }, {
     text: "Descobrir onde almoçar!",
-    href: "#/where-to-eat",
+    href: "/where-to-eat",
     isActive: true
   }];
 }
@@ -100,7 +100,23 @@ function MenuCtrl($scope) {
 }
 
 function WhereToEatCtrl($scope, restaurants) {
+
+  // taken from: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  random = function (min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  };
+
+  $scope.feedbackMessage = "Iniciando o turbo...";
+
   restaurants.nearBy().then(function(results) {
-    $scope.placesOptions = results.data;
+
+    // se algum restaurante possuir um prato com Bacon, é óbvio que ele deve ser o escolhido ;)
+    // só considere os 3 restaurantes mais próximos
+    var chosenIndex = random(0, 2);
+    $scope.feedbackMessage = results[chosenIndex].name;
+    // removing chosen from the OTHER options (it is already being displayed above)
+    results.splice(chosenIndex, 1);
+    $scope.placesOptions = results;
+
   });
 }

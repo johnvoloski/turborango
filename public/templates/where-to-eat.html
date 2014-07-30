@@ -1,7 +1,7 @@
 <h3>E agora, onde almoçar?</h3>
-
-<section>
-  <h4>As outras opções eram...</h4>
+<h4>{{ feedbackMessage }}</h4>
+<section ng-show="placesOptions.length > 0">
+  <h5>As outras opções eram...</h5>
   <ul>
     <li ng-repeat="placeOption in placesOptions">
       Restaurante {{ placeOption.name }}, por: {{ placeOption.price | currency }}

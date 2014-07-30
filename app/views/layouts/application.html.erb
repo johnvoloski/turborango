@@ -4,11 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    <base href="/">-->
     <title>Turbo Rango</title>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= csrf_meta_tags %>
-
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -16,23 +15,8 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body ng-cloak ng-controller="IndexCtrl">
-
-    <div class="row">
-      <div class="col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6">
-        <header>
-          <h1>{{ header }}</h1>
-        </header>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-offset-2 col-xs-8 col-md-offset-3 col-md-6">
-        <turbo-menu-links></turbo-menu-links>
-        <section ng-view></section>
-      </div>
-    </div>
-
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <body>
+    <section ng-include="'templates/index.html'" ng-controller="IndexCtrl"></section>
+    <%= javascript_include_tag 'application' %>
   </body>
 </html>

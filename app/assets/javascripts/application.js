@@ -11,11 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sass
 //= require angular
 //= require angular-route
+//= require angular-locale_pt-br
 //= require ./angular/turboRangoModule
 //= require_tree ./angular
 //= require_tree .

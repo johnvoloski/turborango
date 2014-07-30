@@ -2,15 +2,15 @@ function IndexCtrl($scope) {
   $scope.header = "TurboRango";
   $scope.links = [{
     text: "Restaurantes",
-    href: "#/restaurants",
+    href: "/restaurants",
     isActive: true
   }, {
     text: "Cardápio",
-    href: "#/",
+    href: "/",
     isActive: false
   }, {
     text: "Descobrir onde almoçar!",
-    href: "#/where-to-eat",
+    href: "/where-to-eat",
     isActive: true
   }];
 }

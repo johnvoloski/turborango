@@ -14,51 +14,34 @@ class MenusController < ApplicationController
   def show
   end
 
-  # GET /menus/new
-  def new
-    @menu = Menu.new(restaurant_params)
-  end
-
-  # GET /menus/1/edit
-  def edit
-  end
-
-  # POST /menus
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to restaurant_menus_path, notice: 'O Cardápio foi criado com sucesso.' }
         format.json { render :show, status: :created, location: restaurant_menus_path }
       else
-        format.html { render :new }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /menus/1
   # PATCH/PUT /menus/1.json
   def update
     respond_to do |format|
       if @menu.update(menu_params)
-        format.html { redirect_to restaurant_menus_path, notice: 'O Cardápio foi atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: restaurant_menus_path }
       else
-        format.html { render :edit }
         format.json { render json: @menu.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /menus/1
   # DELETE /menus/1.json
   def destroy
     @menu.destroy
     respond_to do |format|
-      format.html { redirect_to restaurant_menus_path, notice: 'O Cardápio foi excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

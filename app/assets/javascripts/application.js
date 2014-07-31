@@ -14,7 +14,6 @@
 //= require bootstrap-sass
 //= require angular
 //= require angular-route
-//= require angular-locale_pt-br
 //= require ./angular/turboRangoModule
 //= require_tree ./angular
 //= require_tree .

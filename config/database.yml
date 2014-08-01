@@ -14,11 +14,12 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  password: root
+  #socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
+  host: localhost
   database: TurboRango_development
 
 # Warning: The database defined as "test" will be erased and

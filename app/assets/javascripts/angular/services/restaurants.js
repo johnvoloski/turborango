@@ -1,3 +1,5 @@
+'use strict';
+
 app.service('restaurants', function($q, $http) {
 
   this.storageKey = 'turboRango_restaurants';
@@ -32,7 +34,7 @@ app.service('restaurants', function($q, $http) {
 
   this.nearBy = function() {
 
-    deferred = $q.defer();
+    var deferred = $q.defer();
 
     navigator.geolocation.getCurrentPosition(
 
